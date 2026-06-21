@@ -1,0 +1,271 @@
+/* ── Header ── */
+.app-header {
+  --background: transparent;
+}
+
+.app-toolbar {
+  --background: linear-gradient(135deg, #004d22 0%, #00632c 50%, #00843b 100%);
+  --color: #ffffff;
+  --border-color: transparent;
+  padding: 4px 0;
+}
+
+.toolbar-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.toolbar-icon {
+  font-size: 22px;
+  color: #c8f7d8;
+}
+
+.app-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+}
+
+/* ── Page background ── */
+.donation-content {
+  --background: #eef5f0;
+}
+
+/* ── Hero ── */
+.hero-section {
+  background: linear-gradient(160deg, #004d22 0%, #00632c 45%, #00a84f 100%);
+  padding: 32px 24px 52px;
+  text-align: center;
+  color: #ffffff;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-section::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 28px;
+  background: #eef5f0;
+  border-radius: 28px 28px 0 0;
+}
+
+.hero-icon-wrap {
+  width: 72px;
+  height: 72px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+  backdrop-filter: blur(4px);
+  border: 1.5px solid rgba(255, 255, 255, 0.3);
+}
+
+.hero-icon {
+  font-size: 36px;
+  color: #c8f7d8;
+}
+
+.hero-title {
+  font-size: 24px;
+  font-weight: 800;
+  margin: 0 0 10px;
+  letter-spacing: 0.3px;
+  color: #ffffff;
+}
+
+.hero-subtitle {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.82);
+  margin: 0;
+  line-height: 1.7;
+  max-width: 280px;
+  margin-inline: auto;
+}
+
+/* ── Cards ── */
+.section-card {
+  margin: 16px 12px;
+  border-radius: 20px;
+  box-shadow: 0 4px 24px rgba(0, 99, 44, 0.09);
+  --background: #ffffff;
+  overflow: visible;
+  border: none;
+}
+
+.section-header {
+  padding-bottom: 12px;
+  border-bottom: 1px solid #f0f5f2;
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #00632c;
+}
+
+.section-icon {
+  font-size: 20px;
+  color: #00632c;
+}
+
+/* ── Fields ── */
+.field-wrap {
+  margin-bottom: 16px;
+}
+
+.field-wrap:last-child {
+  margin-bottom: 0;
+}
+
+.custom-input,
+.custom-select {
+  --border-radius: 12px;
+  --border-color: #d1e8d9;
+  --border-width: 1.5px;
+  --highlight-color-focused: #00632c;
+  --label-color: #6b7280;
+  --color: #111827;
+  --placeholder-color: #9ca3af;
+  font-size: 15px;
+  direction: rtl;
+}
+
+.custom-input.input-error,
+.custom-select.input-error {
+  --border-color: var(--ion-color-danger);
+  --highlight-color-focused: var(--ion-color-danger);
+}
+
+.error-note {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  padding: 5px 4px 0;
+  line-height: 1.4;
+}
+
+.error-note ion-icon {
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+/* ── Map section ── */
+.map-section {
+  margin-top: 8px;
+}
+
+.map-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #374151;
+  margin: 0 0 10px;
+}
+
+.map-label ion-icon {
+  font-size: 16px;
+  color: #00632c;
+}
+
+/* ── Images ── */
+.images-hint {
+  font-size: 13px;
+  color: #6b7280;
+  margin: 0 0 14px;
+  line-height: 1.6;
+}
+
+/* ── Action buttons ── */
+.action-grid {
+  padding: 8px 12px 24px;
+}
+
+.submit-btn {
+  --background: linear-gradient(135deg, #00632c 0%, #00843b 100%);
+  --background-activated: #004d22;
+  --border-radius: 14px;
+  --box-shadow: 0 6px 20px rgba(0, 99, 44, 0.35);
+  height: 52px;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+.submit-btn::part(native) {
+  --background: linear-gradient(135deg, #00632c 0%, #00843b 100%);
+}
+
+.reset-btn {
+  --border-radius: 14px;
+  --border-color: #d1d5db;
+  --color: #6b7280;
+  height: 52px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* ── Footer note ── */
+.footer-note {
+  text-align: center;
+  padding: 0 24px 36px;
+}
+
+.footer-note p {
+  font-size: 13px;
+  color: #9ca3af;
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* ── Dark mode ── */
+@media (prefers-color-scheme: dark) {
+  .donation-content {
+    --background: #0f1f14;
+  }
+
+  .hero-section::after {
+    background: #0f1f14;
+  }
+
+  .section-card {
+    --background: #1a2e1f;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+  }
+
+  .section-header {
+    border-bottom-color: #2d4a34;
+  }
+
+  .custom-input,
+  .custom-select {
+    --border-color: #2d4a34;
+    --color: #f0f5f2;
+    --label-color: #9ca3af;
+  }
+
+  .map-label {
+    color: #d1fae5;
+  }
+
+  .images-hint {
+    color: #9ca3af;
+  }
+
+  .footer-note p {
+    color: #6b7280;
+  }
+}

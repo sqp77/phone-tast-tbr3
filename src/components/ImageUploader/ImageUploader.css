@@ -1,0 +1,143 @@
+.image-uploader {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.upload-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 36px 20px;
+  border: 2px dashed #a7d4b8;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #f0f8f3 0%, #f8fffe 100%);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+  outline: none;
+}
+
+.upload-area:active {
+  background: #e6f4ed;
+  border-color: var(--app-primary);
+  transform: scale(0.98);
+}
+
+.upload-icon {
+  font-size: 44px;
+  color: var(--app-primary);
+  opacity: 0.7;
+}
+
+.upload-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--app-primary);
+  margin: 0;
+}
+
+.upload-subtitle {
+  font-size: 12px;
+  color: #9ca3af;
+  margin: 0;
+}
+
+.images-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+
+.images-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #374151;
+}
+
+.images-label ion-icon {
+  font-size: 16px;
+  color: var(--app-primary);
+}
+
+.images-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.image-thumb {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  aspect-ratio: 1;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+.thumb-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.remove-btn {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  background: rgba(0, 0, 0, 0.55);
+  border: none;
+  border-radius: 50%;
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.15s;
+}
+
+.remove-btn:active {
+  background: rgba(220, 38, 38, 0.8);
+}
+
+.remove-btn ion-icon {
+  font-size: 18px;
+  color: #fff;
+}
+
+.add-more-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  border: 2px dashed #a7d4b8;
+  border-radius: 12px;
+  aspect-ratio: 1;
+  background: #f0f8f3;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 12px;
+  color: var(--app-primary);
+  font-weight: 600;
+  transition: all 0.15s;
+  outline: none;
+}
+
+.add-more-btn ion-icon {
+  font-size: 26px;
+}
+
+.add-more-btn:active {
+  background: #e0f0e8;
+  transform: scale(0.95);
+}

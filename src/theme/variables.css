@@ -1,2 +1,36 @@
-/* For information on how to create your own theme, please refer to:
-http://ionicframework.com/docs/theming/ */
+/* Saudi Premium Green — light mode */
+:root {
+  --app-primary: #00632c;
+  --app-primary-light: #00843b;
+  --app-primary-dark: #004d22;
+
+  /* Override Ionic primary */
+  --ion-color-primary: #00632c;
+  --ion-color-primary-rgb: 0, 99, 44;
+  --ion-color-primary-contrast: #ffffff;
+  --ion-color-primary-contrast-rgb: 255, 255, 255;
+  --ion-color-primary-shade: #005727;
+  --ion-color-primary-tint: #1a7241;
+
+  --ion-font-family: 'Tajawal', 'Cairo', 'Segoe UI', sans-serif;
+
+  --ion-background-color: #eef5f0;
+  --ion-text-color: #111827;
+  --ion-text-color-rgb: 17, 24, 39;
+
+  --ion-item-background: transparent;
+  --ion-card-background: #ffffff;
+}
+
+/* Dark mode overrides */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ion-background-color: #0f1f14;
+    --ion-background-color-rgb: 15, 31, 20;
+    --ion-text-color: #f0f5f2;
+    --ion-text-color-rgb: 240, 245, 242;
+    --ion-card-background: #1a2e1f;
+    --ion-item-background: transparent;
+    --ion-toolbar-background: #004d22;
+  }
+}
