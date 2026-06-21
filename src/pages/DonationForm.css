@@ -1,271 +1,597 @@
-/* ── Header ── */
-.app-header {
-  --background: transparent;
+/* ═══════════════════════════════════════
+   HEADER
+═══════════════════════════════════════ */
+.df-header {
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.18) !important;
 }
 
-.app-toolbar {
-  --background: linear-gradient(135deg, #004d22 0%, #00632c 50%, #00843b 100%);
-  --color: #ffffff;
+.df-toolbar {
+  --background: #00420f;
   --border-color: transparent;
-  padding: 4px 0;
+  --padding-top: 6px;
+  --padding-bottom: 6px;
 }
 
-.toolbar-content {
+.df-toolbar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+}
+
+.df-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.df-logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.18);
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  border: 1.5px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(8px);
 }
 
-.toolbar-icon {
+.df-logo ion-icon {
   font-size: 22px;
-  color: #c8f7d8;
+  color: #a7f3c4;
 }
 
-.app-title {
-  font-size: 18px;
-  font-weight: 700;
+.df-brand-name {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 800;
   color: #ffffff;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.3px;
 }
 
-/* ── Page background ── */
-.donation-content {
-  --background: #eef5f0;
+.df-brand-sub {
+  margin: 0;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 1px;
 }
 
-/* ── Hero ── */
-.hero-section {
-  background: linear-gradient(160deg, #004d22 0%, #00632c 45%, #00a84f 100%);
-  padding: 32px 24px 52px;
-  text-align: center;
+.df-step-counter {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 20px;
+  padding: 4px 14px;
+  display: flex;
+  align-items: baseline;
+  gap: 2px;
+}
+
+.df-step-num {
+  font-size: 20px;
+  font-weight: 900;
   color: #ffffff;
+  line-height: 1;
+}
+
+.df-step-total {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+/* ── Progress bar ── */
+.df-progress-bar {
+  height: 4px;
+  background: rgba(255, 255, 255, 0.12);
   position: relative;
-  overflow: hidden;
 }
 
-.hero-section::after {
+.df-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #a7f3c4, #34d399);
+  border-radius: 0 2px 2px 0;
+  transition: width 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ── Step dots row ── */
+.df-steps-row {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: #00420f;
+  padding: 10px 8px 12px;
+  gap: 4px;
+}
+
+.df-step-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  flex: 1;
+  position: relative;
+}
+
+.df-step-item:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: 16px;
+  left: calc(-50% + 16px);
+  right: calc(50% + 16px);
+  height: 2px;
+  background: rgba(255, 255, 255, 0.15);
+  z-index: 0;
+}
+
+.df-step-item.done:not(:last-child)::after {
+  background: #34d399;
+}
+
+.df-step-dot {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+  transition: all 0.3s ease;
+}
+
+.df-step-dot ion-icon {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.df-step-item.done .df-step-dot {
+  background: #34d399;
+  border-color: #34d399;
+  box-shadow: 0 0 12px rgba(52, 211, 153, 0.5);
+}
+
+.df-step-item.done .df-step-dot ion-icon {
+  color: #fff;
+}
+
+.df-step-item.active .df-step-dot {
+  background: transparent;
+  border-color: #a7f3c4;
+  box-shadow: 0 0 0 4px rgba(167, 243, 196, 0.2);
+  animation: pulseDot 2s infinite;
+}
+
+.df-step-item.active .df-step-dot ion-icon {
+  color: #a7f3c4;
+}
+
+@keyframes pulseDot {
+  0%, 100% { box-shadow: 0 0 0 4px rgba(167, 243, 196, 0.2); }
+  50%       { box-shadow: 0 0 0 8px rgba(167, 243, 196, 0.08); }
+}
+
+.df-step-label {
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.45);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.df-step-item.done  .df-step-label { color: #34d399; }
+.df-step-item.active .df-step-label { color: #a7f3c4; font-weight: 700; }
+
+/* ═══════════════════════════════════════
+   PAGE CONTENT
+═══════════════════════════════════════ */
+.df-content {
+  --background: #f1f5f1;
+}
+
+/* ── Step animation ── */
+.df-step-view {
+  animation-duration: 0.35s;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  animation-fill-mode: both;
+}
+
+.df-step-view.fwd { animation-name: slideFwd; }
+.df-step-view.bwd { animation-name: slideBwd; }
+
+@keyframes slideFwd {
+  from { opacity: 0; transform: translateX(-28px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideBwd {
+  from { opacity: 0; transform: translateX(28px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* ── Step hero banner ── */
+.df-step-block {
+  padding-bottom: 8px;
+}
+
+.df-step-hero {
+  position: relative;
+  padding: 28px 24px 44px;
+  text-align: center;
+  overflow: hidden;
+  color: #fff;
+}
+
+.df-step-hero::after {
   content: '';
   position: absolute;
   bottom: -1px;
   left: 0;
   right: 0;
-  height: 28px;
-  background: #eef5f0;
-  border-radius: 28px 28px 0 0;
+  height: 30px;
+  background: #f1f5f1;
+  border-radius: 30px 30px 0 0;
 }
 
-.hero-icon-wrap {
-  width: 72px;
-  height: 72px;
-  background: rgba(255, 255, 255, 0.15);
-  border-radius: 50%;
+.df-step-hero-num {
+  position: absolute;
+  bottom: 16px;
+  left: 12px;
+  font-size: 72px;
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.07);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+
+.df-step-hero-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(8px);
+  border: 1.5px solid rgba(255, 255, 255, 0.3);
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto 16px;
-  backdrop-filter: blur(4px);
-  border: 1.5px solid rgba(255, 255, 255, 0.3);
+  margin: 0 auto 14px;
 }
 
-.hero-icon {
-  font-size: 36px;
-  color: #c8f7d8;
+.df-step-hero-icon ion-icon {
+  font-size: 30px;
+  color: #fff;
 }
 
-.hero-title {
-  font-size: 24px;
+.df-step-hero-title {
+  font-size: 22px;
   font-weight: 800;
-  margin: 0 0 10px;
-  letter-spacing: 0.3px;
-  color: #ffffff;
+  margin: 0 0 8px;
+  color: #fff;
 }
 
-.hero-subtitle {
-  font-size: 14px;
-  color: rgba(255, 255, 255, 0.82);
-  margin: 0;
-  line-height: 1.7;
-  max-width: 280px;
-  margin-inline: auto;
-}
-
-/* ── Cards ── */
-.section-card {
-  margin: 16px 12px;
-  border-radius: 20px;
-  box-shadow: 0 4px 24px rgba(0, 99, 44, 0.09);
-  --background: #ffffff;
-  overflow: visible;
-  border: none;
-}
-
-.section-header {
-  padding-bottom: 12px;
-  border-bottom: 1px solid #f0f5f2;
-}
-
-.section-title {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 15px;
-  font-weight: 700;
-  color: #00632c;
-}
-
-.section-icon {
-  font-size: 20px;
-  color: #00632c;
-}
-
-/* ── Fields ── */
-.field-wrap {
-  margin-bottom: 16px;
-}
-
-.field-wrap:last-child {
-  margin-bottom: 0;
-}
-
-.custom-input,
-.custom-select {
-  --border-radius: 12px;
-  --border-color: #d1e8d9;
-  --border-width: 1.5px;
-  --highlight-color-focused: #00632c;
-  --label-color: #6b7280;
-  --color: #111827;
-  --placeholder-color: #9ca3af;
-  font-size: 15px;
-  direction: rtl;
-}
-
-.custom-input.input-error,
-.custom-select.input-error {
-  --border-color: var(--ion-color-danger);
-  --highlight-color-focused: var(--ion-color-danger);
-}
-
-.error-note {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  font-size: 12px;
-  padding: 5px 4px 0;
-  line-height: 1.4;
-}
-
-.error-note ion-icon {
-  font-size: 14px;
-  flex-shrink: 0;
-}
-
-/* ── Map section ── */
-.map-section {
-  margin-top: 8px;
-}
-
-.map-label {
-  display: flex;
-  align-items: center;
-  gap: 6px;
+.df-step-hero-sub {
   font-size: 13px;
-  font-weight: 600;
-  color: #374151;
-  margin: 0 0 10px;
+  color: rgba(255, 255, 255, 0.75);
+  margin: 0;
+  line-height: 1.6;
 }
 
-.map-label ion-icon {
+/* ── Fields card ── */
+.df-fields-card {
+  background: #ffffff;
+  border-radius: 24px;
+  margin: -6px 14px 0;
+  padding: 24px 20px 20px;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.09);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ── Individual field ── */
+.df-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.df-label {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #374151;
+}
+
+.df-label ion-icon {
   font-size: 16px;
   color: #00632c;
 }
 
-/* ── Images ── */
-.images-hint {
-  font-size: 13px;
-  color: #6b7280;
-  margin: 0 0 14px;
-  line-height: 1.6;
+.df-req {
+  color: #ef4444;
+  font-size: 14px;
 }
 
-/* ── Action buttons ── */
-.action-grid {
-  padding: 8px 12px 24px;
+.df-optional {
+  font-weight: 400;
+  color: #9ca3af;
+  font-size: 11px;
 }
 
-.submit-btn {
-  --background: linear-gradient(135deg, #00632c 0%, #00843b 100%);
-  --background-activated: #004d22;
+.df-input {
   --border-radius: 14px;
-  --box-shadow: 0 6px 20px rgba(0, 99, 44, 0.35);
-  height: 52px;
+  --border-color: #e5e7eb;
+  --border-width: 1.5px;
+  --highlight-color-focused: #00632c;
+  --color: #111827;
+  --placeholder-color: #9ca3af;
+  --padding-start: 14px;
+  --padding-end: 14px;
   font-size: 15px;
+}
+
+.df-input.df-input-err {
+  --border-color: #ef4444;
+  --highlight-color-focused: #ef4444;
+}
+
+.df-err-note {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  padding: 0 4px;
+}
+
+.df-err-note ion-icon {
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+/* ── Review summary ── */
+.df-review {
+  background: #f8fffe;
+  border: 1.5px solid #d1ede0;
+  border-radius: 16px;
+  padding: 16px;
+}
+
+.df-review-title {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 14px;
   font-weight: 700;
-  letter-spacing: 0.3px;
+  color: #00632c;
+  margin: 0 0 14px;
 }
 
-.submit-btn::part(native) {
-  --background: linear-gradient(135deg, #00632c 0%, #00843b 100%);
+.df-review-title ion-icon {
+  font-size: 17px;
 }
 
-.reset-btn {
+.df-review-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.df-review-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e5ede9;
+  gap: 12px;
+}
+
+.df-review-row:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.df-review-key {
+  font-size: 12px;
+  color: #6b7280;
+  flex-shrink: 0;
+}
+
+.df-review-val {
+  font-size: 13px;
+  font-weight: 600;
+  color: #111827;
+  text-align: left;
+}
+
+/* ── Submit button ── */
+.df-submit-btn {
+  --background: linear-gradient(135deg, #004d22 0%, #00843b 100%);
+  --background-activated: #003d1b;
+  --border-radius: 16px;
+  --box-shadow: 0 8px 28px rgba(0, 99, 44, 0.4);
+  height: 56px;
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  margin-top: 4px;
+}
+
+/* ── Navigation ── */
+.df-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 16px 8px;
+  gap: 12px;
+}
+
+.df-nav-back {
   --border-radius: 14px;
   --border-color: #d1d5db;
   --color: #6b7280;
-  height: 52px;
+  height: 50px;
+  flex: 1;
   font-size: 14px;
   font-weight: 600;
 }
 
-/* ── Footer note ── */
-.footer-note {
-  text-align: center;
-  padding: 0 24px 36px;
+.df-nav-next {
+  --background: linear-gradient(135deg, #00632c, #00a84f);
+  --background-activated: #004d22;
+  --border-radius: 14px;
+  --box-shadow: 0 4px 20px rgba(0, 99, 44, 0.35);
+  height: 50px;
+  flex: 2;
+  font-size: 15px;
+  font-weight: 700;
 }
 
-.footer-note p {
-  font-size: 13px;
+/* ── Footer ── */
+.df-footer {
+  text-align: center;
+  padding: 12px 24px 32px;
+}
+
+.df-footer p {
+  font-size: 12px;
   color: #9ca3af;
   margin: 0;
   line-height: 1.6;
 }
 
-/* ── Dark mode ── */
+/* ═══════════════════════════════════════
+   SUCCESS SCREEN
+═══════════════════════════════════════ */
+.success-screen {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 28px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(160deg, #003d1b 0%, #00632c 40%, #00a84f 100%);
+}
+
+.success-glow {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(52, 211, 153, 0.25) 0%, transparent 70%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.success-icon-wrap {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 28px;
+  animation: popIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+.success-icon {
+  font-size: 56px;
+  color: #a7f3c4;
+}
+
+@keyframes popIn {
+  from { transform: scale(0); opacity: 0; }
+  to   { transform: scale(1); opacity: 1; }
+}
+
+.success-title {
+  font-size: 28px;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 14px;
+}
+
+.success-msg {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.7;
+  margin: 0 0 28px;
+  max-width: 280px;
+}
+
+.success-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1.5px solid rgba(255, 255, 255, 0.3);
+  border-radius: 30px;
+  padding: 8px 20px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #a7f3c4;
+  margin-bottom: 36px;
+}
+
+.success-badge ion-icon {
+  font-size: 18px;
+  color: #fcd34d;
+}
+
+.new-donation-btn {
+  --background: rgba(255, 255, 255, 0.18);
+  --background-activated: rgba(255, 255, 255, 0.28);
+  --border-radius: 16px;
+  --border-width: 1.5px;
+  --border-style: solid;
+  --border-color: rgba(255, 255, 255, 0.35);
+  --color: #ffffff;
+  --box-shadow: none;
+  height: 54px;
+  font-size: 16px;
+  font-weight: 700;
+  width: 100%;
+  max-width: 320px;
+}
+
+/* ═══════════════════════════════════════
+   DARK MODE
+═══════════════════════════════════════ */
 @media (prefers-color-scheme: dark) {
-  .donation-content {
-    --background: #0f1f14;
+  .df-content { --background: #0d1a10; }
+
+  .df-step-hero::after { background: #0d1a10; }
+
+  .df-fields-card {
+    background: #182a1c;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4);
   }
 
-  .hero-section::after {
-    background: #0f1f14;
-  }
+  .df-label { color: #d1fae5; }
 
-  .section-card {
-    --background: #1a2e1f;
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
-  }
-
-  .section-header {
-    border-bottom-color: #2d4a34;
-  }
-
-  .custom-input,
-  .custom-select {
+  .df-input {
     --border-color: #2d4a34;
-    --color: #f0f5f2;
-    --label-color: #9ca3af;
+    --color: #f0fdf4;
+    --placeholder-color: #6b7280;
   }
 
-  .map-label {
-    color: #d1fae5;
+  .df-review {
+    background: #1a2e1f;
+    border-color: #2d4a34;
   }
 
-  .images-hint {
-    color: #9ca3af;
-  }
+  .df-review-row { border-bottom-color: #2d4a34; }
+  .df-review-val { color: #f0fdf4; }
 
-  .footer-note p {
-    color: #6b7280;
-  }
+  .df-footer p { color: #4b5563; }
 }
