@@ -3,6 +3,11 @@ export interface Location {
   lng: number;
 }
 
+export interface CapturedImage {
+  dataUrl: string;
+  file: File;
+}
+
 export interface DonationFormData {
   fullName: string;
   phone: string;
@@ -11,7 +16,7 @@ export interface DonationFormData {
   quantity: string;
   region: string;
   location: Location | null;
-  images: File[];
+  images: CapturedImage[];
 }
 
 export interface ValidationErrors {

@@ -18,7 +18,7 @@ const buildFormPayload = (data: DonationFormData): FormData => {
     payload.append('latitude', String(data.location.lat));
     payload.append('longitude', String(data.location.lng));
   }
-  data.images.forEach((file, i) => payload.append(`image_${i}`, file));
+  data.images.forEach((img, i) => payload.append(`image_${i}`, img.file));
   return payload;
 };
 
